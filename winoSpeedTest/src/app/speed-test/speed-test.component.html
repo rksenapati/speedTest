@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div
+        class="row justify-content-center"
+        style="text-align: center; font-size: 40px"
+      >
+        <i
+          class="fa fa-solid fa-car"
+          [style.color]="speed >= 100 ? 'yellow' : '#416cc7'"
+        ></i>
+      </div>
+      <br />
+      <div class="row justify-content-center">
+        <div
+          class="col-5 car_content1"
+        >
+          1
+        </div>
+        <div class="button r col-2" id="button-1">
+          <input type="checkbox" class="checkbox" [checked]="speed >= 100" />
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <div
+          class="col-5 car_content2">
+          2
+        </div>
+      </div>
+      <br />
+      <div class="row" style="padding: 50px">
+        <div style="text-align: center">
+          <div
+            style="width: 20%; margin: auto; border-radius: 50%"
+            [ngClass]="{ boder: speed >= 100, shadow: speed < 100 }"
+          >
+            <span style="font-weight: bold; font-size: 50px">{{ speed }}</span
+            ><br />
+            <span style="font-size: 20px">km/h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="card-footer text-muted"
+      style="height: 40px"
+      [ngClass]="{
+        color_back_blue: speed < 100,
+        color_back_yellow: speed >= 100
+      }"
+    ></div>
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="changeSpeed()"
+    style="margin-top: 30px"
+  >
+    Refresh Speed
+  </button>
+</div>
